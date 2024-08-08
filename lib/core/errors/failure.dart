@@ -1,10 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
+import 'package:fauzi_portofolio/core/errors/APIException.dart';
 
 abstract class Failure extends Equatable {
   final String message;
-  final int statusCode;
+  final String statusCode;
 
   const Failure({required this.message, required this.statusCode});
+
+  String get errorMessage => '$statusCode error: $message';
 
   @override
   List<Object> get props {
@@ -14,4 +18,11 @@ abstract class Failure extends Equatable {
 
 class APIFailure extends Failure {
   const APIFailure({required super.message, required super.statusCode});
+
+  APIFailure.fromFirebaseException(FirebaseException exception)
+      : this(message: exception.message ?? 'Message is null',
+    statusCode: exception.code);
+
+  APIFailure.fromAPIException(APIException exception)
+      : this(message: exception.message, statusCode: exception.statusCode);
 }
