@@ -10,6 +10,7 @@ class ProfileModel extends Profile {
     required super.about,
     required super.email,
     required super.phoneNumber,
+    required super.linkedIn,
   });
 
   const ProfileModel.empty()
@@ -20,6 +21,7 @@ class ProfileModel extends Profile {
           about: '_empty.about',
           email: '_empty.email',
           phoneNumber: '_empty.phoneNumber',
+          linkedIn: '_empty.linkedIn',
         );
 
   ProfileModel copyWith({
@@ -35,6 +37,7 @@ class ProfileModel extends Profile {
       about: about ?? this.about,
       email: about ?? this.email,
       phoneNumber: about ?? this.phoneNumber,
+      linkedIn: about ?? this.linkedIn,
     );
   }
 
@@ -47,6 +50,7 @@ class ProfileModel extends Profile {
       about: data['about'].toString(),
       email: data['email'].toString(),
       phoneNumber: data['phone_number'].toString(),
+      linkedIn: data['linkedin_url'].toString(),
     );
   }
 
@@ -58,6 +62,7 @@ class ProfileModel extends Profile {
           about: map['about'] as String,
           email: map['email'] as String,
           phoneNumber: map['phone_number'] as String,
+          linkedIn: map['linkedin_url'] as String,
         );
 
   DataMap toMap() => {
@@ -67,5 +72,6 @@ class ProfileModel extends Profile {
         'about': about,
         'email': email,
         'phone_number': phoneNumber,
+        'linkedin_url': linkedIn,
       };
 }

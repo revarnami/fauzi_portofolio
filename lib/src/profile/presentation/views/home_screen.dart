@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:fauzi_portofolio/core/utils/size_config.dart';
 import 'package:fauzi_portofolio/src/profile/presentation/cubit/profile_cubit.dart';
 import 'package:fauzi_portofolio/core/general_widget/triangle_component.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -116,6 +119,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         state.profiles.first.phoneNumber,
                         style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    if (state is ProfileLoaded)
+                      InkWell(
+                        onTap: () async {
+                          await launchUrl(Uri.parse(state.profiles.first.linkedIn));
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            'Linked In',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16
+                            ),
+                          ),
+                        ),
                       ),
                   ],
                 ),

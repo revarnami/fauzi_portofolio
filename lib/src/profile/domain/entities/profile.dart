@@ -7,6 +7,7 @@ class Profile extends Equatable {
   final String about;
   final String email;
   final String phoneNumber;
+  final String linkedIn;
 
   const Profile({
     required this.id,
@@ -15,6 +16,7 @@ class Profile extends Equatable {
     required this.about,
     required this.email,
     required this.phoneNumber,
+    required this.linkedIn,
   });
 
   const Profile.empty(): this(
@@ -24,6 +26,7 @@ class Profile extends Equatable {
     about: '_empty.about',
     email: '_empty.email',
     phoneNumber: '_empty.phoneNum',
+    linkedIn: '_empty.linkedin',
   );
 
   @override
