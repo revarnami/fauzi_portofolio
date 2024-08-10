@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "780736640622",
+    "project_id": "fauzi-portofolio-978ae",
+    "storage_bucket": "fauzi-portofolio-978ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780736640622:android:13144ba2b146e4e8fd587f",
+        "android_client_info": {
+          "package_name": "com.fauziarifarnami.fauzi_portofolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKfQ2Ceuddu0DaFO9Ng1qBjYuWOrSWcJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
