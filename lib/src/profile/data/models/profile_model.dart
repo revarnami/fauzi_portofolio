@@ -8,6 +8,8 @@ class ProfileModel extends Profile {
     required super.name,
     required super.avatar,
     required super.about,
+    required super.email,
+    required super.phoneNumber,
   });
 
   const ProfileModel.empty()
@@ -16,6 +18,8 @@ class ProfileModel extends Profile {
           name: '_empty.name',
           avatar: '_empty.avatar',
           about: '_empty.about',
+          email: '_empty.email',
+          phoneNumber: '_empty.phoneNumber',
         );
 
   ProfileModel copyWith({
@@ -29,6 +33,8 @@ class ProfileModel extends Profile {
       name: name ?? this.name,
       avatar: avatar ?? this.avatar,
       about: about ?? this.about,
+      email: about ?? this.email,
+      phoneNumber: about ?? this.phoneNumber,
     );
   }
 
@@ -36,9 +42,11 @@ class ProfileModel extends Profile {
     DataMap data = doc.data() as DataMap;
     return ProfileModel(
       id: doc.id,
-      name: data['name'] ?? '',
-      avatar: data['avatar'] ?? '',
-      about: data['about'] ?? '',
+      name: data['name'].toString(),
+      avatar: data['avatar'].toString(),
+      about: data['about'].toString(),
+      email: data['email'].toString(),
+      phoneNumber: data['phone_number'].toString(),
     );
   }
 
@@ -48,6 +56,8 @@ class ProfileModel extends Profile {
           name: map['name'] as String,
           avatar: map['avatar'] as String,
           about: map['about'] as String,
+          email: map['email'] as String,
+          phoneNumber: map['phone_number'] as String,
         );
 
   DataMap toMap() => {
@@ -55,5 +65,7 @@ class ProfileModel extends Profile {
         'name': name,
         'avatar': avatar,
         'about': about,
+        'email': email,
+        'phone_number': phoneNumber,
       };
 }

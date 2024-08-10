@@ -1,4 +1,5 @@
 import 'package:fauzi_portofolio/core/services/injection_container.dart';
+import 'package:fauzi_portofolio/core/utils/size_config.dart';
 import 'package:fauzi_portofolio/src/profile/presentation/cubit/profile_cubit.dart';
 import 'package:fauzi_portofolio/src/profile/presentation/views/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return BlocProvider(
       create: (context) => sl<ProfileCubit>(),
       child: MaterialApp(
