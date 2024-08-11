@@ -16,18 +16,18 @@ class GettingProfile extends ProfileState {
 }
 
 class ProfileLoaded extends ProfileState {
-  final List<Profile> profiles;
 
   const ProfileLoaded(this.profiles);
+  final List<Profile> profiles;
 
   @override
   List<Object> get props => profiles.map((profile) => profile.id).toList();
 }
 
 class ProfileError extends ProfileState {
-  final String message;
 
   const ProfileError(this.message);
+  final String message;
 
   @override
   List<Object> get props => [message];

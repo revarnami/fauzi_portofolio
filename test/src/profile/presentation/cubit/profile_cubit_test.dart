@@ -40,7 +40,7 @@ void main() {
         verify: (_) {
           verify(() => getProfile()).called(1);
           verifyNoMoreInteractions(getProfile);
-        });
+        },);
 
     blocTest<ProfileCubit, ProfileState>(
       'Should emit [GettingProfile, ProfileError] when unsuccessful',
@@ -56,7 +56,7 @@ void main() {
       verify: (_) {
         verify(() => getProfile()).called(1);
         verifyNoMoreInteractions(getProfile);
-      }
+      },
     );
   });
 }

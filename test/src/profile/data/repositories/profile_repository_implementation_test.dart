@@ -51,7 +51,7 @@ void main() {
         expect(
           result,
           equals(
-            Left(APIFailure.fromAPIException(tException)),
+            Left<APIFailure, dynamic>(APIFailure.fromAPIException(tException)),
           ),
         );
         verify(() => remoteDataSource.getProfile()).called(1);

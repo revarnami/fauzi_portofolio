@@ -6,13 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'profile_state.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {
-  final GetProfile _getProfile;
 
   ProfileCubit({required GetProfile getProfile})
       : _getProfile = getProfile,
         super(
           const ProfileInitial(),
         );
+  final GetProfile _getProfile;
 
   Future<void> getProfiles() async {
     emit(const GettingProfile());

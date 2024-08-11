@@ -1,9 +1,6 @@
-import 'dart:ui';
-
+import 'package:fauzi_portofolio/core/general_widget/triangle_component.dart';
 import 'package:fauzi_portofolio/core/utils/size_config.dart';
 import 'package:fauzi_portofolio/src/profile/presentation/cubit/profile_cubit.dart';
-import 'package:fauzi_portofolio/core/general_widget/triangle_component.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
@@ -57,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Expanded(
                             child: SizedBox(
                           width: 8,
-                        )),
+                        ),),
                         Container(
                           padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                           width: sizeAvatar,
@@ -83,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const Expanded(
                             child: SizedBox(
                           width: 8,
-                        )),
+                        ),),
                       ],
                     ),
                     if (state is GettingProfile)
@@ -133,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: Colors.blue,
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.bold,
-                              fontSize: 16
+                              fontSize: 16,
                             ),
                           ),
                         ),

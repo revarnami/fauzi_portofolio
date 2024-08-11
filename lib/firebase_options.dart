@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'fauzi-portofolio-978ae.appspot.com',
     measurementId: 'G-ME4PQ4SQ57',
   );
+
 }

@@ -1,13 +1,6 @@
 import 'package:equatable/equatable.dart';
 
 class Profile extends Equatable {
-  final String id;
-  final String name;
-  final String avatar;
-  final String about;
-  final String email;
-  final String phoneNumber;
-  final String linkedIn;
 
   const Profile({
     required this.id,
@@ -28,6 +21,13 @@ class Profile extends Equatable {
     phoneNumber: '_empty.phoneNum',
     linkedIn: '_empty.linkedin',
   );
+  final String id;
+  final String name;
+  final String avatar;
+  final String about;
+  final String email;
+  final String phoneNumber;
+  final String linkedIn;
 
   @override
   List<Object?> get props => [id];

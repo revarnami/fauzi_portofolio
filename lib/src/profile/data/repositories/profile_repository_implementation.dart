@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:fauzi_portofolio/core/errors/APIException.dart';
 import 'package:fauzi_portofolio/core/errors/failure.dart';
@@ -8,9 +7,9 @@ import 'package:fauzi_portofolio/src/profile/domain/entities/profile.dart';
 import 'package:fauzi_portofolio/src/profile/domain/repositories/profile_repository.dart';
 
 class ProfileRepositoryImplementation implements ProfileRepository {
-  final ProfileRemoteDataSource _profileRDS;
 
   ProfileRepositoryImplementation(this._profileRDS);
+  final ProfileRemoteDataSource _profileRDS;
 
   @override
   ResultFuture<List<Profile>> getProfile() async {

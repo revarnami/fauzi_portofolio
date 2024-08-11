@@ -18,11 +18,11 @@ Future<void> init() async {
 
     // Repositories
     ..registerLazySingleton<ProfileRepository>(
-        () => ProfileRepositoryImplementation(sl()))
+        () => ProfileRepositoryImplementation(sl()),)
 
     // Data Sources
     ..registerLazySingleton<ProfileRemoteDataSource>(
-        () => ProfileRDSImplementation(sl()))
+        () => ProfileRDSImplementation(sl()),)
 
     // External Dependencies
     ..registerLazySingleton(() => FirebaseFirestore.instance);

@@ -13,6 +13,30 @@ class ProfileModel extends Profile {
     required super.linkedIn,
   });
 
+  factory ProfileModel.fromFirestore(DocumentSnapshot doc) {
+    final data = doc.data()! as DataMap;
+    return ProfileModel(
+      id: doc.id,
+      name: data['name'].toString(),
+      avatar: data['avatar'].toString(),
+      about: data['about'].toString(),
+      email: data['email'].toString(),
+      phoneNumber: data['phone_number'].toString(),
+      linkedIn: data['linkedin_url'].toString(),
+    );
+  }
+
+  ProfileModel.fromMap(DataMap map)
+      : this(
+          id: map['id'] as String,
+          name: map['name'] as String,
+          avatar: map['avatar'] as String,
+          about: map['about'] as String,
+          email: map['email'] as String,
+          phoneNumber: map['phone_number'] as String,
+          linkedIn: map['linkedin_url'] as String,
+        );
+
   const ProfileModel.empty()
       : this(
           id: '_empty.id',
@@ -35,35 +59,11 @@ class ProfileModel extends Profile {
       name: name ?? this.name,
       avatar: avatar ?? this.avatar,
       about: about ?? this.about,
-      email: about ?? this.email,
-      phoneNumber: about ?? this.phoneNumber,
-      linkedIn: about ?? this.linkedIn,
+      email: about ?? email,
+      phoneNumber: about ?? phoneNumber,
+      linkedIn: about ?? linkedIn,
     );
   }
-
-  factory ProfileModel.fromFirestore(DocumentSnapshot doc) {
-    DataMap data = doc.data() as DataMap;
-    return ProfileModel(
-      id: doc.id,
-      name: data['name'].toString(),
-      avatar: data['avatar'].toString(),
-      about: data['about'].toString(),
-      email: data['email'].toString(),
-      phoneNumber: data['phone_number'].toString(),
-      linkedIn: data['linkedin_url'].toString(),
-    );
-  }
-
-  ProfileModel.fromMap(DataMap map)
-      : this(
-          id: map['id'] as String,
-          name: map['name'] as String,
-          avatar: map['avatar'] as String,
-          about: map['about'] as String,
-          email: map['email'] as String,
-          phoneNumber: map['phone_number'] as String,
-          linkedIn: map['linkedin_url'] as String,
-        );
 
   DataMap toMap() => {
         'id': id,

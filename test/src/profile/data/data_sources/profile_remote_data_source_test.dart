@@ -6,9 +6,7 @@ import 'package:fauzi_portofolio/core/utils/typedef.dart';
 import 'package:fauzi_portofolio/src/profile/data/data_sources/profile_remote_data_source.dart';
 import 'package:fauzi_portofolio/src/profile/data/models/profile_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mock_exceptions/mock_exceptions.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:http/http.dart' as http;
 
 class MockFirebaseFirestore extends Mock implements FirebaseFirestore {}
 
@@ -17,7 +15,6 @@ void main() {
   late FirebaseFirestore mockDb;
   late ProfileRemoteDataSource remoteDataSource;
   late ProfileRemoteDataSource mockRemoteDataSource;
-  late DocumentSnapshot<DataMap> snapshot;
 
   setUp(() async {
     //this DB and Data Source is use for mocking data firestore
@@ -30,15 +27,15 @@ void main() {
     mockRemoteDataSource = ProfileRDSImplementation(mockDb);
   });
 
-  ProfileModel tModel = const ProfileModel.empty();
-  DataMap map = tModel.toMap();
+  const tModel = ProfileModel.empty();
+  final map = tModel.toMap();
 
   Future<CollectionReference<DataMap>> initializeTest(
     String colPath,
   ) async {
-    CollectionReference<Map<String, dynamic>> collection =
+    final collection =
         db.collection(colPath);
-    QuerySnapshot<Map<String, dynamic>> snapshot = await collection.get();
+    var snapshot = await collection.get();
 
     await Future.forEach(snapshot.docs,
         (DocumentSnapshot<Map<String, dynamic>> documentSnapshot) {
@@ -71,7 +68,7 @@ void main() {
       final methodCall = mockRemoteDataSource.getProfile;
       //Assert
       expect(
-        () => methodCall(),
+        methodCall,
         throwsA(isA<APIException>()),
       );
       verify(() => mockDb.collection(CollectionPath.profile).get()).called(1);
@@ -88,7 +85,7 @@ void main() {
       final methodCall = mockRemoteDataSource.getProfile;
       //Assert
       expect(
-        () => methodCall(),
+        methodCall,
         throwsA(isA<APIException>()),
       );
     });
